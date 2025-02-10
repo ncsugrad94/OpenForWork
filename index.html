@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Cross-Industry Experience</title>
+
+  <!-- Load Font Awesome for the top icons -->
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" 
+        integrity="sha512-..."
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+
+  <style>
+    /* Basic Reset & Page Setup */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background: #f1f1f1;
+    }
+
+    .container {
+      text-align: center;
+      background: #fff;
+      border-radius: 8px;
+      padding: 40px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 700px;
+      margin: 40px auto;
+    }
+
+    /* ===== Top Icons (Healthcare, Fintech, Telecom) ===== */
+    .icons {
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .icon {
+      font-size: 50px;
+      color: #555;
+      opacity: 0;
+      animation: fadeInOut 9s infinite;
+    }
+    /* Stagger the fadeInOut for each icon */
+    .icon:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .icon:nth-child(2) {
+      animation-delay: 3s;
+    }
+    .icon:nth-child(3) {
+      animation-delay: 6s;
+    }
+
+    @keyframes fadeInOut {
+      0%   { opacity: 0; }
+      10%  { opacity: 1; }
+      40%  { opacity: 1; }
+      50%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* ===== Headline & Explanation ===== */
+    .headline {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #333;
+      opacity: 0;
+      animation: slideIn 2s forwards;
+    }
+    @keyframes slideIn {
+      0%   { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0);    opacity: 1; }
+    }
+
+    .explanation {
+      font-size: 1rem;
+      color: #777;
+      margin: 0 auto 40px auto;
+      max-width: 600px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 2s; /* Start after headline appears */
+    }
+    @keyframes fadeIn {
+      0%   { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .highlight {
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    /* ===== Animated Packet Flow Among SVG Icons ===== */
+    .flow-section {
+      margin-top: 40px;
+    }
+
+    .flow-header {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    /* Container for the three SVGs (Hospital, Bank, Phone) */
+    .clipart-images {
+      position: relative;
+      width: 400px; /* Adjust as needed for spacing */
+      margin: 30px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .clipart-images svg {
+      width: 60px;
+      height: auto;
+    }
+
+    /* The small animated dots (packets) */
+    .packet {
+      position: absolute;
+      top: 30px;  /* y-position; adjust if needed */
+      width: 12px;
+      height: 12px;
+      background-color: #2ecc71;
+      border-radius: 50%;
+      opacity: 0; /* Start invisible */
+    }
+    /*
+      We'll define approximate x-positions for the center of each icon:
+        - Hospital: x=30
+        - Bank: x=200
+        - Phone: x=370
+      Adjust if your layout or icon spacing differs.
+    */
+
+    /* Hospital → Bank */
+    .hospital-bank {
+      animation: hospitalToBank 4s infinite ease-in-out;
+      animation-delay: 0.5s; /* So they don't all start exactly together */
+    }
+    @keyframes hospitalToBank {
+      0%   { left: 30px;  opacity: 0; }
+      10%  { opacity: 1; }
+      50%  { left: 200px; opacity: 1; }
+      90%  { opacity: 1; }
+      100% { left: 200px; opacity: 0; }
+    }
+
+    /* Bank → Phone */
+    .bank-phone {
+      animation: bankToPhone 4s infinite ease-in-out;
+      animation-delay: 1.5s;
+    }
+    @keyframes bankToPhone {
+      0%   { left: 200px; opacity: 0; }
+      10%  { opacity: 1; }
+      50%  { left: 370px; opacity: 1; }
+      90%  { opacity: 1; }
+      100% { left: 370px; opacity: 0; }
+    }
+
+    /* Phone → Hospital */
+    .phone-hospital {
+      animation: phoneToHospital 4s infinite ease-in-out;
+      animation-delay: 2.5s;
+    }
+    @keyframes phoneToHospital {
+      0%   { left: 370px; opacity: 0; }
+      10%  { opacity: 1; }
+      50%  { left: 30px; opacity: 1; }
+      90%  { opacity: 1; }
+      100% { left: 30px; opacity: 0; }
+    }
+
+    /* ===== Contact Section at the Bottom ===== */
+    .contact-info {
+      margin-top: 40px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+    }
+    .contact-info strong {
+      color: #2c3e50;
+    }
+    .contact-info a {
+      color: #2c3e50;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- TOP: 3 icons that fade in/out (Healthcare, Fintech, Telecom) -->
+  <div class="icons">
+    <i class="icon fas fa-heartbeat"></i>
+    <i class="icon fas fa-piggy-bank"></i>
+    <i class="icon fas fa-phone-volume"></i>
+  </div>
+
+  <!-- Headline and Explanation -->
+  <div class="headline">My Journey Through Healthcare, Fintech & Telecom</div>
+  <p class="explanation">
+    Leveraging solid <span class="highlight">software engineering</span> principles 
+    across industries shows that, at its core, technology remains the same:
+    <span class="highlight">innovation, reliability,</span> and a focus on
+    <span class="highlight">user needs</span> drive success whether it’s
+    <strong>Healthcare</strong>, <strong>Fintech</strong>, or <strong>Telecom</strong>.
+  </p>
+
+  <!-- Animated Packet Flow Section -->
+  <div class="flow-section">
+    <div class="flow-header">Data Exchange in Action</div>
+    <div class="clipart-images">
+      <!-- 1) Hospital Icon SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" aria-label="Hospital Icon">
+        <path d="M52.634 36.134 L48.938 38.268 L48.938 34 L46.938 34 L46.938 38.268 L43.242 36.134 L42.242 37.866 L45.937 40 L42.242 42.134 L43.242 43.866 L46.938 41.732 L46.938 46 L48.938 46 L48.938 41.732 L52.634 43.866 L53.634 42.134 L49.938 40 L53.634 37.866 Z" />
+        <path d="M58 68.001 L62 68.001 L62 72 L58 72 Z" />
+        <path d="M58 61 L62 61 L62 64.999 L58 64.999 Z" />
+        <path d="M67 68 L71 68 L71 71.999 L67 71.999 Z" />
+        <path d="M67 61.001 L71 61.001 L71 65 L67 65 Z" />
+        <path d="M58 54 L62 54 L62 57.999 L58 57.999 Z" />
+        <path d="M67 54 L71 54 L71 57.999 L67 57.999 Z" />
+        <path d="M76 68 L80 68 L80 71.999 L76 71.999 Z" />
+        <path d="M76 61.001 L80 61.001 L80 65 L76 65 Z" />
+        <path d="M76 54 L80 54 L80 57.999 L76 57.999 Z" />
+        <path d="M58 47.001 L62 47.001 L62 51 L58 51 Z" />
+        <path d="M67 47 L71 47 L71 50.999 L67 50.999 Z" />
+        <path d="M76 47 L80 47 L80 50.999 L76 50.999 Z" />
+        <path d="M16 68.001 L20 68.001 L20 72 L16 72 Z" />
+        <path d="M16 61 L20 61 L20 64.999 L16 64.999 Z" />
+        <path d="M25 68 L29 68 L29 71.999 L25 71.999 Z" />
+        <path d="M25 61.001 L29 61.001 L29 65 L25 65 Z" />
+        <path d="M16 54 L20 54 L20 57.999 L16 57.999 Z" />
+        <path d="M25 54 L29 54 L29 57.999 L25 57.999 Z" />
+        <path d="M34 68 L38 68 L38 71.999 L34 71.999 Z" />
+        <path d="M34 61.001 L38 61.001 L38 65 L34 65 Z" />
+        <path d="M34 54 L38 54 L38 57.999 L34 57.999 Z" />
+        <path d="M16 47.001 L20 47.001 L20 51 L16 51 Z" />
+        <path d="M25 47 L29 47 L29 50.999 L25 50.999 Z" />
+        <path d="M34 47 L38 47 L38 50.999 L34 50.999 Z" />
+        <path d="M87 39 L61 39 L61 35.332 L61.416 35.749 L66.626 30.486 L48 12.616 L28.968 30.791 L34.274 36.063 L35 35.336 L35 39 L7 39 L7 41 L9 41 L9 80 L87 80 L87 41 L89 41 L89 39 Z 
+                 M34.269 33.238 L31.834 30.819 L48 15.384 L63.777 30.523 L61.412 32.913 L61 32.5 L61 32.5 L48 19.5 L35 32.5 L35 32.509 Z 
+                 M45 78 L45 66 L51 66 L51 78 Z 
+                 M85 78 L53 78 L53 64 L43 64 L43 78 L11 78 L11 41 L37 41 L37 33.335 L38.341 31.994 L38.341 31.994 L48 22.322 L56.78 31.104 L56.78 31.104 L59 33.333 L59 41 L85 41 Z" />
+      </svg>
+
+      <!-- 2) Bank Icon SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" aria-label="Bank Icon">
+        <path d="M16 30 L48 10 L80 30 Z" fill="#666"/>
+        <rect x="20" y="30" width="56" height="40" fill="#ccc" stroke="#666" stroke-width="2"/>
+        <rect x="28" y="30" width="6" height="40" fill="#999" stroke="#666" stroke-width="1"/>
+        <rect x="42" y="30" width="6" height="40" fill="#999" stroke="#666" stroke-width="1"/>
+        <rect x="56" y="30" width="6" height="40" fill="#999" stroke="#666" stroke-width="1"/>
+        <rect x="70" y="30" width="6" height="40" fill="#999" stroke="#666" stroke-width="1"/>
+        <text x="48" y="25" text-anchor="middle" font-size="8" fill="#fff">BANK</text>
+      </svg>
+
+      <!-- 3) Mobile Phone Icon SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" aria-label="Mobile Phone Icon">
+        <rect x="20" y="8" width="56" height="80" rx="8" ry="8" fill="#444"/>
+        <rect x="24" y="16" width="48" height="64" fill="#eee"/>
+        <rect x="40" y="12" width="16" height="2" fill="#000" opacity="0.6"/>
+        <circle cx="72" cy="12" r="2" fill="#000" opacity="0.6"/>
+      </svg>
+
+      <!-- Animated Packets (Hospital→Bank, Bank→Phone, Phone→Hospital) -->
+      <div class="packet hospital-bank"></div>
+      <div class="packet bank-phone"></div>
+      <div class="packet phone-hospital"></div>
+    </div>
+  </div>
+
+  <!-- Contact Info -->
+  <div class="contact-info">
+    <p><strong>Steven Schoenberg</strong><br>
+       Technical Architect<br>
+       <a href="mailto:ncsugrad94@gmail.com">ncsugrad94@gmail.com</a><br>
+       919-349-0558<br>
+       <em>Looking for new opportunities</em>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
